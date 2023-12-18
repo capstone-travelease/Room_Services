@@ -4,15 +4,15 @@ import com.capstone.Room.Entities.ResponseRoomDetail;
 
 import java.util.List;
 
-public class ResponseData {
+public class ResponseDTOsRoomDetail {
     private Integer code;
     private List<ResponseRoomDetail> data;
     private String message;
 
-    public ResponseData() {
+    public ResponseDTOsRoomDetail() {
     }
 
-    public ResponseData(Integer code, List<ResponseRoomDetail> data, String message) {
+    public ResponseDTOsRoomDetail(Integer code, List<ResponseRoomDetail> data, String message) {
         this.code = code;
         this.data = data;
         this.message = message;

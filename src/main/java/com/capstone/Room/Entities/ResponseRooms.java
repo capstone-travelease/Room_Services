@@ -1,25 +1,24 @@
-package com.capstone.Room.DTOs;
+package com.capstone.Room.Entities;
 
 import java.math.BigDecimal;
-import java.util.List;
 
-public class RoomDetailCombined {
-    private String room_name;
+public class ResponseRooms {
     private Integer room_id;
+    private String room_name;
     private String room_description;
     private String room_size;
     private Integer room_bed_quantity;
     private Integer room_capacity;
     private String file_url;
-    private List<String> facility_name;
+    private String facility_name;
     private BigDecimal room_price;
 
-    public RoomDetailCombined() {
+    public ResponseRooms() {
     }
 
-    public RoomDetailCombined(String room_name, Integer room_id, String room_description, String room_size, Integer room_bed_quantity, Integer room_capacity, String file_url, List<String> facility_name, BigDecimal room_price) {
-        this.room_name = room_name;
+    public ResponseRooms(Integer room_id, String room_name, String room_description, String room_size, Integer room_bed_quantity, Integer room_capacity, String file_url, String facility_name, BigDecimal room_price) {
         this.room_id = room_id;
+        this.room_name = room_name;
         this.room_description = room_description;
         this.room_size = room_size;
         this.room_bed_quantity = room_bed_quantity;
@@ -85,11 +84,11 @@ public class RoomDetailCombined {
         this.file_url = file_url;
     }
 
-    public List<String> getFacility_name() {
+    public String getFacility_name() {
         return facility_name;
     }
 
-    public void setFacility_name(List<String> facility_name) {
+    public void setFacility_name(String facility_name) {
         this.facility_name = facility_name;
     }
 
@@ -103,16 +102,16 @@ public class RoomDetailCombined {
 
     @Override
     public String toString() {
-        return "ResponseRoomDetail{" +
-                "room_name=" + room_name +
-                ", room_id=" + room_id +
+        return "ResponseRooms{" +
+                "room_id=" + room_id +
+                ", room_name='" + room_name + '\'' +
                 ", room_description='" + room_description + '\'' +
                 ", room_size='" + room_size + '\'' +
                 ", room_bed_quantity=" + room_bed_quantity +
                 ", room_capacity=" + room_capacity +
                 ", file_url='" + file_url + '\'' +
                 ", facility_name='" + facility_name + '\'' +
-                ", room_price='" + room_price + '\'' +
+                ", room_price=" + room_price +
                 '}';
     }
 }
