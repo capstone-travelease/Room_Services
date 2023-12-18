@@ -18,8 +18,8 @@ public class RoomDetailController {
         this.roomDetailService = roomDetailService;
     }
 
-    @GetMapping("/list")
-    public ResponseDTOsRoomDetail ListRoomDetail(@RequestParam(value = "roomId",required = true) Integer hotelId){
+    @GetMapping("/get-room")
+    public ResponseDTOsRoomDetail GetRoomDetail(@RequestParam(value = "roomId",required = true) Integer hotelId){
         return roomDetailService.getRoomDetail(hotelId);
     }
 }
