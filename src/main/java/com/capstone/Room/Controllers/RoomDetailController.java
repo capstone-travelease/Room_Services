@@ -1,11 +1,12 @@
 package com.capstone.Room.Controllers;
 
 import com.capstone.Room.DTOs.ResponseData;
-import com.capstone.Room.Entities.ResponseRoomDetail;
 import com.capstone.Room.Services.RoomDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class RoomDetailController {
     }
 
     @GetMapping("/list")
-    public List<ResponseData> ListRoomDetail(@RequestParam(value = "hotelId",required = true) Integer hotelId){
+    public ResponseData ListRoomDetail(@RequestParam(value = "hotelId",required = true) Integer hotelId){
         return roomDetailService.ListRoomDetail(hotelId);
     }
 }

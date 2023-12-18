@@ -1,5 +1,6 @@
 package com.capstone.Room.Repositories;
 
+import com.capstone.Room.DTOs.RoomDetailCombined;
 import com.capstone.Room.Entities.ResponseRoomDetail;
 import com.capstone.Room.Entities.Roomdetail;
 import org.springframework.data.jpa.repository.JpaRepository;

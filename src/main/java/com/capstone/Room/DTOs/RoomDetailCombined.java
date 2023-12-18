@@ -1,9 +1,9 @@
-package com.capstone.Room.Entities;
+package com.capstone.Room.DTOs;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-public class ResponseRoomDetail {
+public class RoomDetailCombined {
     private String room_name;
     private Integer room_id;
     private String room_description;
@@ -11,13 +11,13 @@ public class ResponseRoomDetail {
     private Integer room_bed_quantity;
     private Integer room_capacity;
     private String file_url;
-    private String facility_name;
+    private List<String> facility_name;
     private BigDecimal room_price;
 
-    public ResponseRoomDetail() {
+    public RoomDetailCombined() {
     }
 
-    public ResponseRoomDetail(String room_name, Integer room_id, String room_description, String room_size, Integer room_bed_quantity, Integer room_capacity, String file_url, String facility_name, BigDecimal room_price) {
+    public RoomDetailCombined(String room_name, Integer room_id, String room_description, String room_size, Integer room_bed_quantity, Integer room_capacity, String file_url, List<String> facility_name, BigDecimal room_price) {
         this.room_name = room_name;
         this.room_id = room_id;
         this.room_description = room_description;
@@ -85,11 +85,11 @@ public class ResponseRoomDetail {
         this.file_url = file_url;
     }
 
-    public String getFacility_name() {
+    public List<String> getFacility_name() {
         return facility_name;
     }
 
-    public void setFacility_name(String facility_name) {
+    public void setFacility_name(List<String> facility_name) {
         this.facility_name = facility_name;
     }
 
