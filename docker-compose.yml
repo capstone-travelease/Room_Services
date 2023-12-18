@@ -1,8 +1,8 @@
 version: "3.3"
 services:
   login:
-    container_name: search-hotels
-    image: coderbillzay/search-hotels
+    container_name: room-services
+    image: coderbillzay/room-services
     ports:
       - '49912:49912'
     volumes:
