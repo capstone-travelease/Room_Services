@@ -1,6 +1,7 @@
 package com.capstone.Room.Services;
 
 import com.capstone.Room.DTOs.ResponseDTOsRoomDetail;
+import com.capstone.Room.Entities.ResponseRoomDetail;
 import com.capstone.Room.Repositories.RoomDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,11 +31,11 @@ public class RoomDetailService {
                                             .collect(Collectors.toList())));
                                     return firstRoom;
                                 })));
-        List<com.capstone.Room.Entities.ResponseRoomDetail> combinedRooms = new ArrayList<>(groupedRooms.values());
+        List<ResponseRoomDetail> combinedRooms = new ArrayList<>(groupedRooms.values());
 
         return new ResponseDTOsRoomDetail(
                 200,
-                combinedRooms,
+                combinedRooms.get(0),
                 "Successful"
         );
     }

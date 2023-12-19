@@ -14,8 +14,8 @@ public class RoomController {
         this.roomService = roomService;
     }
 
-    @GetMapping("/list/{hotelId}")
-    public ResponseDTOsRooms ListRooms(@PathVariable(value = "hotelId",required = true) Integer hotelId){
+    @GetMapping("/list")
+    public ResponseDTOsRooms ListRooms(@RequestParam(value = "hotelId",required = true) Integer hotelId){
         return roomService.ListRooms(hotelId);
     }
 

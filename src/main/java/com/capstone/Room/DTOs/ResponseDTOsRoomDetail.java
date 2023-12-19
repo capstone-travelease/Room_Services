@@ -6,13 +6,13 @@ import java.util.List;
 
 public class ResponseDTOsRoomDetail {
     private Integer code;
-    private List<ResponseRoomDetail> data;
+    private ResponseRoomDetail data;
     private String message;
 
     public ResponseDTOsRoomDetail() {
     }
 
-    public ResponseDTOsRoomDetail(Integer code, List<ResponseRoomDetail> data, String message) {
+    public ResponseDTOsRoomDetail(Integer code, ResponseRoomDetail data, String message) {
         this.code = code;
         this.data = data;
         this.message = message;
@@ -26,11 +26,11 @@ public class ResponseDTOsRoomDetail {
         this.code = code;
     }
 
-    public List<ResponseRoomDetail> getData() {
+    public ResponseRoomDetail getData() {
         return data;
     }
 
-    public void setData(List<ResponseRoomDetail> data) {
+    public void setData(ResponseRoomDetail data) {
         this.data = data;
     }
 
