@@ -1,7 +1,9 @@
 package com.capstone.Room.Services;
 
 import com.capstone.Room.DTOs.ResponseDTOsRoomDetail;
+import com.capstone.Room.DTOs.ResponseFacility;
 import com.capstone.Room.Entities.ResponseRoomDetail;
+import com.capstone.Room.Entities.ResponseRooms;
 import com.capstone.Room.Repositories.RoomDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,24 +20,28 @@ public class RoomDetailService {
         this.roomDetailRepository = roomDetailRepository;
     }
 
-    public ResponseDTOsRoomDetail getRoomDetail(Integer hotelId){
-        List<com.capstone.Room.Entities.ResponseRoomDetail> rooms = roomDetailRepository.getRoomDetail(hotelId);
-        Map<Integer, com.capstone.Room.Entities.ResponseRoomDetail> groupedRooms = rooms.stream()
-                .collect(Collectors.groupingBy(com.capstone.Room.Entities.ResponseRoomDetail::getRoom_id,
-                        Collectors.collectingAndThen(
-                                Collectors.toList(),
-                                roomList -> {
-                                    com.capstone.Room.Entities.ResponseRoomDetail firstRoom = roomList.get(0);
-                                    firstRoom.setFacility_name(String.valueOf(roomList.stream()
-                                            .map(com.capstone.Room.Entities.ResponseRoomDetail::getFacility_name)
-                                            .collect(Collectors.toList())));
-                                    return firstRoom;
-                                })));
-        List<ResponseRoomDetail> combinedRooms = new ArrayList<>(groupedRooms.values());
+    public ResponseDTOsRoomDetail getRoomDetail(Integer roomId){
+        List<ResponseRoomDetail> rooms = roomDetailRepository.getRoomDetail(roomId);
+        List<ResponseFacility> facilitiesList = roomDetailRepository.listFacilitiesDetail(roomId);
+
+        Map<Integer, List<ResponseFacility>> groupedFacility = facilitiesList.stream()
+                .collect(Collectors.groupingBy(ResponseFacility::getRoom_id));
+
+        Map<Integer, List<ResponseRoomDetail>> groupedRoom = rooms.stream()
+                .collect(Collectors.groupingBy(ResponseRoomDetail::getRoom_id));
+
+        List<ResponseRoomDetail> transformedRoom = groupedRoom.values().stream()
+                .map(roomsInGroup -> roomsInGroup.get(0))
+                .collect(Collectors.toList());
+
+        transformedRoom.forEach(i -> {
+            var facilityListData = groupedFacility.get(i.getRoom_id());
+            i.setFacilities(facilityListData);
+        });
 
         return new ResponseDTOsRoomDetail(
                 200,
-                combinedRooms.get(0),
+                transformedRoom.get(0),
                 "Successful"
         );
     }
