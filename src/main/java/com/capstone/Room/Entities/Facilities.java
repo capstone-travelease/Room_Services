@@ -14,17 +14,14 @@ public class Facilities {
     private String facility_name;
     @Column(name = "facility_type")
     private String facility_type;
-    @Column(name = "facility_price")
-    private String facility_price;
 
     public Facilities() {
     }
 
-    public Facilities(Integer facility_id, String facility_name, String facility_type, String facility_price) {
+    public Facilities(Integer facility_id, String facility_name, String facility_type) {
         this.facility_id = facility_id;
         this.facility_name = facility_name;
         this.facility_type = facility_type;
-        this.facility_price = facility_price;
     }
 
     public Integer getFacility_id() {
@@ -49,13 +46,5 @@ public class Facilities {
 
     public void setFacility_type(String facility_type) {
         this.facility_type = facility_type;
-    }
-
-    public String getFacility_price() {
-        return facility_price;
-    }
-
-    public void setFacility_price(String facility_price) {
-        this.facility_price = facility_price;
     }
 }

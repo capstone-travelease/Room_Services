@@ -1,6 +1,9 @@
 package com.capstone.Room.Entities;
 
+import com.capstone.Room.DTOs.ResponseFacility;
+
 import java.math.BigDecimal;
+import java.util.List;
 
 public class ResponseRooms {
     private Integer room_id;
@@ -9,20 +12,30 @@ public class ResponseRooms {
     private Integer room_bed_quantity;
     private Integer room_capacity;
     private String file_url;
-    private String facility_name;
+    private List<ResponseFacility> facilities;
     private BigDecimal room_price;
 
     public ResponseRooms() {
     }
 
-    public ResponseRooms(Integer room_id, String room_name, String room_size, Integer room_bed_quantity, Integer room_capacity, String file_url, String facility_name, BigDecimal room_price) {
+    public ResponseRooms(Integer room_id, String room_name, String room_size, Integer room_bed_quantity, Integer room_capacity, String file_url, List<ResponseFacility> facilities, BigDecimal room_price) {
         this.room_id = room_id;
         this.room_name = room_name;
         this.room_size = room_size;
         this.room_bed_quantity = room_bed_quantity;
         this.room_capacity = room_capacity;
         this.file_url = file_url;
-        this.facility_name = facility_name;
+        this.facilities = facilities;
+        this.room_price = room_price;
+    }
+
+    public ResponseRooms(Integer room_id, String room_name, String room_size, Integer room_bed_quantity, Integer room_capacity, String file_url, BigDecimal room_price) {
+        this.room_id = room_id;
+        this.room_name = room_name;
+        this.room_size = room_size;
+        this.room_bed_quantity = room_bed_quantity;
+        this.room_capacity = room_capacity;
+        this.file_url = file_url;
         this.room_price = room_price;
     }
 
@@ -74,12 +87,12 @@ public class ResponseRooms {
         this.file_url = file_url;
     }
 
-    public String getFacility_name() {
-        return facility_name;
+    public List<ResponseFacility> getfacilities() {
+        return facilities;
     }
 
-    public void setFacility_name(String facility_name) {
-        this.facility_name = facility_name;
+    public void setfacilities(List<ResponseFacility> facilities) {
+        this.facilities = facilities;
     }
 
     public BigDecimal getRoom_price() {
@@ -99,7 +112,7 @@ public class ResponseRooms {
                 ", room_bed_quantity=" + room_bed_quantity +
                 ", room_capacity=" + room_capacity +
                 ", file_url='" + file_url + '\'' +
-                ", facility_name='" + facility_name + '\'' +
+                ", facilities='" + facilities + '\'' +
                 ", room_price=" + room_price +
                 '}';
     }
