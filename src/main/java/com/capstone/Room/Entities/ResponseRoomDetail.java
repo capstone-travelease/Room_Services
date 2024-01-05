@@ -1,6 +1,8 @@
 package com.capstone.Room.Entities;
 
 import com.capstone.Room.DTOs.ResponseFacility;
+import com.capstone.Room.DTOs.ResponseImage;
+import org.apache.coyote.Response;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,32 +14,42 @@ public class ResponseRoomDetail {
     private String room_size;
     private Integer room_bed_quantity;
     private Integer room_capacity;
-    private String file_url;
+    private List<ResponseImage> images;
     private List<ResponseFacility> facilities;
     private BigDecimal room_price;
 
     public ResponseRoomDetail() {
     }
 
-    public ResponseRoomDetail(String room_name, Integer room_id, String room_description, String room_size, Integer room_bed_quantity, Integer room_capacity, String file_url, BigDecimal room_price) {
+    public ResponseRoomDetail(String room_name, Integer room_id, String room_description, String room_size, Integer room_bed_quantity, Integer room_capacity, BigDecimal room_price) {
         this.room_name = room_name;
         this.room_id = room_id;
         this.room_description = room_description;
         this.room_size = room_size;
         this.room_bed_quantity = room_bed_quantity;
         this.room_capacity = room_capacity;
-        this.file_url = file_url;
         this.room_price = room_price;
     }
 
-    public ResponseRoomDetail(String room_name, Integer room_id, String room_description, String room_size, Integer room_bed_quantity, Integer room_capacity, String file_url, List<ResponseFacility> facilities, BigDecimal room_price) {
+    public ResponseRoomDetail(String room_name, Integer room_id, String room_description, String room_size, Integer room_bed_quantity, Integer room_capacity, List<ResponseImage> images, BigDecimal room_price) {
         this.room_name = room_name;
         this.room_id = room_id;
         this.room_description = room_description;
         this.room_size = room_size;
         this.room_bed_quantity = room_bed_quantity;
         this.room_capacity = room_capacity;
-        this.file_url = file_url;
+        this.images = images;
+        this.room_price = room_price;
+    }
+
+    public ResponseRoomDetail(String room_name, Integer room_id, String room_description, String room_size, Integer room_bed_quantity, Integer room_capacity, List<ResponseImage> images, List<ResponseFacility> facilities, BigDecimal room_price) {
+        this.room_name = room_name;
+        this.room_id = room_id;
+        this.room_description = room_description;
+        this.room_size = room_size;
+        this.room_bed_quantity = room_bed_quantity;
+        this.room_capacity = room_capacity;
+        this.images = images;
         this.facilities = facilities;
         this.room_price = room_price;
     }
@@ -90,12 +102,12 @@ public class ResponseRoomDetail {
         this.room_capacity = room_capacity;
     }
 
-    public String getFile_url() {
-        return file_url;
+    public List<ResponseImage> getimages() {
+        return images;
     }
 
-    public void setFile_url(String file_url) {
-        this.file_url = file_url;
+    public void setimages(List<ResponseImage> images) {
+        this.images = images;
     }
 
     public List<ResponseFacility> getFacilities() {
@@ -123,7 +135,7 @@ public class ResponseRoomDetail {
                 ", room_size='" + room_size + '\'' +
                 ", room_bed_quantity=" + room_bed_quantity +
                 ", room_capacity=" + room_capacity +
-                ", file_url='" + file_url + '\'' +
+                ", images='" + images + '\'' +
                 ", facilities='" + facilities + '\'' +
                 ", room_price='" + room_price + '\'' +
                 '}';
