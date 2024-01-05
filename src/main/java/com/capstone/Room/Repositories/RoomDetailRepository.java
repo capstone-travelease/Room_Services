@@ -21,7 +21,7 @@ public interface RoomDetailRepository extends JpaRepository<Roomdetail, Long> {
             "WHERE r.room_id = ?1")
     List<ResponseRoomDetail> getRoomDetail(Integer hotelId);
 
-    @Query("SELECT new com.capstone.Room.DTOs.ResponseFacility(f.facility_id, f.facility_name, r.room_id)FROM Facilities f\n" +
+    @Query("SELECT new com.capstone.Room.DTOs.ResponseFacility(f.facility_id, f.facility_name, r.room_id, f.facility_image)FROM Facilities f\n" +
             "INNER JOIN RoomFacilities rf ON rf.facility_id = f.facility_id\n" +
             "INNER JOIN Roomdetail rd ON rd.room_detail_id = rf.room_id\n" +
             "INNER JOIN Rooms r ON r.room_id = rd.room_id\n" +
