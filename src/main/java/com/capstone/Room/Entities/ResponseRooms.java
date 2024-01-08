@@ -12,6 +12,7 @@ public class ResponseRooms {
     private String room_size;
     private Integer room_bed_quantity;
     private Integer room_capacity;
+    private Integer room_quantity;
     private List<ResponseImage> images;
     private List<ResponseFacility> facilities;
     private BigDecimal room_price;
@@ -19,32 +20,35 @@ public class ResponseRooms {
     public ResponseRooms() {
     }
 
-    public ResponseRooms(Integer room_id, String room_name, String room_size, Integer room_bed_quantity, Integer room_capacity, BigDecimal room_price) {
+    public ResponseRooms(Integer room_id, String room_name, String room_size, Integer room_bed_quantity, Integer room_capacity, Integer room_quantity, BigDecimal room_price) {
         this.room_id = room_id;
         this.room_name = room_name;
         this.room_size = room_size;
         this.room_bed_quantity = room_bed_quantity;
         this.room_capacity = room_capacity;
+        this.room_quantity = room_quantity;
         this.room_price = room_price;
     }
 
-    public ResponseRooms(Integer room_id, String room_name, String room_size, Integer room_bed_quantity, Integer room_capacity, List<ResponseImage> images, List<ResponseFacility> facilities, BigDecimal room_price) {
+    public ResponseRooms(Integer room_id, String room_name, String room_size, Integer room_bed_quantity, Integer room_capacity, List<ResponseImage> images, List<ResponseFacility> facilities, Integer room_quantity, BigDecimal room_price) {
         this.room_id = room_id;
         this.room_name = room_name;
         this.room_size = room_size;
         this.room_bed_quantity = room_bed_quantity;
         this.room_capacity = room_capacity;
+        this.room_quantity = room_quantity;
         this.images = images;
         this.facilities = facilities;
         this.room_price = room_price;
     }
 
-    public ResponseRooms(Integer room_id, String room_name, String room_size, Integer room_bed_quantity, Integer room_capacity, List<ResponseImage> images, BigDecimal room_price) {
+    public ResponseRooms(Integer room_id, String room_name, String room_size, Integer room_bed_quantity, Integer room_capacity, List<ResponseImage> images, Integer room_quantity, BigDecimal room_price) {
         this.room_id = room_id;
         this.room_name = room_name;
         this.room_size = room_size;
         this.room_bed_quantity = room_bed_quantity;
         this.room_capacity = room_capacity;
+        this.room_quantity = room_quantity;
         this.images = images;
         this.room_price = room_price;
     }
@@ -105,6 +109,14 @@ public class ResponseRooms {
         this.facilities = facilities;
     }
 
+    public Integer getRoom_quantity() {
+        return room_quantity;
+    }
+
+    public void setRoom_quantity(Integer room_quantity) {
+        this.room_quantity = room_quantity;
+    }
+
     public BigDecimal getRoom_price() {
         return room_price;
     }
@@ -121,8 +133,9 @@ public class ResponseRooms {
                 ", room_size='" + room_size + '\'' +
                 ", room_bed_quantity=" + room_bed_quantity +
                 ", room_capacity=" + room_capacity +
-                ", images='" + images + '\'' +
-                ", facilities='" + facilities + '\'' +
+                ", room_quantity=" + room_quantity +
+                ", images=" + images +
+                ", facilities=" + facilities +
                 ", room_price=" + room_price +
                 '}';
     }

@@ -25,10 +25,13 @@ public class Rooms {
     @Column(name = "hotel_id")
     private Integer hotel_id;
 
+    @Column(name = "room_quantity")
+    private Integer room_quantity;
+
     public Rooms() {
     }
 
-    public Rooms(Integer room_id, String room_name, String room_images, Integer room_status, BigDecimal room_price, Integer room_type_id, Integer hotel_id) {
+    public Rooms(Integer room_id, String room_name, String room_images, Integer room_status, BigDecimal room_price, Integer room_type_id, Integer hotel_id, Integer room_quantity) {
         this.room_id = room_id;
         this.room_name = room_name;
         this.room_images = room_images;
@@ -36,6 +39,7 @@ public class Rooms {
         this.room_price = room_price;
         this.room_type_id = room_type_id;
         this.hotel_id = hotel_id;
+        this.room_quantity = room_quantity;
     }
 
     public Integer getRoom_id() {
@@ -92,5 +96,13 @@ public class Rooms {
 
     public void setHotel_id(Integer hotel_id) {
         this.hotel_id = hotel_id;
+    }
+
+    public Integer getRoom_quantity() {
+        return room_quantity;
+    }
+
+    public void setRoom_quantity(Integer room_quantity) {
+        this.room_quantity = room_quantity;
     }
 }

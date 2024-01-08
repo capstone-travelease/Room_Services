@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface RoomDetailRepository extends JpaRepository<Roomdetail, Long> {
-    @Query("SELECT new com.capstone.Room.Entities.ResponseRoomDetail(r.room_name, rd.room_id, room_description, rd.room_size, rd.room_bed_quantity, rd.room_capacity, r.room_price) FROM Roomdetail rd \n" +
+    @Query("SELECT new com.capstone.Room.Entities.ResponseRoomDetail(r.room_name, rd.room_id, room_description, rd.room_size, rd.room_bed_quantity, rd.room_capacity, r.room_quantity, r.room_price) FROM Roomdetail rd \n" +
             "INNER JOIN RoomAttachment rat ON rat.room_id = rd.room_detail_id\n" +
             "INNER JOIN Attachment atc ON atc.attachment_id = rat.attachmentId\n" +
             "INNER JOIN Rooms r ON r.room_id = rd.room_id\n" +
