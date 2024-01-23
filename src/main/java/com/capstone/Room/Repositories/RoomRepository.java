@@ -19,7 +19,8 @@ public interface RoomRepository extends JpaRepository<Rooms, Long> {
             "INNER JOIN Hotels h ON h.hotel_id = r.hotel_id\n" +
             "INNER JOIN RoomFacilities rf ON rf.room_id = rd.room_detail_id\n" +
             "INNER JOIN Facilities fac ON fac.facility_id = rf.facility_id\n" +
-            "WHERE h.hotel_id = ?1")
+            "WHERE h.hotel_id = ?1\n" +
+            "ORDER BY r.room_price")
     List<ResponseRooms> listRoom(Integer hotelId);
 
     @Query("SELECT new com.capstone.Room.DTOs.ResponseFacility(f.facility_id, f.facility_name, r.room_id, f.facility_image)FROM Facilities f\n" +
