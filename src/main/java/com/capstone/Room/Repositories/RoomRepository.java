@@ -33,8 +33,7 @@ public interface RoomRepository extends JpaRepository<Rooms, Long> {
 
     @Query("SELECT new com.capstone.Room.DTOs.ResponseImage(atc.file_url, r.room_id) FROM Attachment atc\n" +
             "INNER JOIN RoomAttachment ratc ON ratc.attachmentId = atc.attachment_id\n" +
-            "INNER JOIN Roomdetail rd ON rd.room_detail_id = ratc.room_id\n" +
-            "INNER JOIN Rooms r ON r.room_id = rd.room_id\n" +
+            "INNER JOIN Rooms r ON r.room_id = ratc.room_id\n" +
             "INNER JOIN Hotels h ON h.hotel_id = r.hotel_id\n" +
             "WHERE h.hotel_id = ?1")
     List<ResponseImage> listImages(Integer hotelId);
